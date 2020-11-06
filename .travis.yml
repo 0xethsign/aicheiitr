@@ -8,8 +8,8 @@ jobs:
     script:
     - npm run build
   - stage: deploy
-    if: branch = master
-    script: npm run deploy
+    if: branch = smrpn
+    script: firebase deploy
 
 env:
     global:
