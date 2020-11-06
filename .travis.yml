@@ -2,14 +2,17 @@ language: node_js
 notifications:
   email: true
 node_js: 12
+
 jobs:
   include:
   - stage: test
     script:
     - npm run build
+  install: 
+    - npm install -g firebase-tools
   - stage: deploy
     if: branch = smrpn
-    script: firebase deploy
+    script: firebase deploy --token $FIREBASE_TOKEN
 
 env:
     global:
